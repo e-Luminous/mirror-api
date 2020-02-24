@@ -6,10 +6,18 @@ Object: {
         }
         
 --------------------------------------
-URL: /api/level/addGroup
+URL: /api/group/addGroup
 Verb: POST
 Object: {
         	"groupName": "Chemistry" 
+        }
+        
+--------------------------------------
+URL: /api/levelGroup/addLevelGroup
+Verb: POST
+Object: {
+        	"mLevelId": 1,
+        	"mGroupId": 2
         }
         
 --------------------------------------
