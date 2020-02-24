@@ -1,0 +1,15 @@
+--------------------------------------
+URL: /api/level/addLevel
+Verb: POST
+Object: {
+        	"levelName": "A" 
+        }
+        
+--------------------------------------
+URL: /api/level/addGroup
+Verb: POST
+Object: {
+        	"groupName": "Chemistry" 
+        }
+        
+--------------------------------------
