@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace mirror_api.Models
 {
     public class LevelGroup
@@ -9,5 +11,7 @@ namespace mirror_api.Models
         public Level Level { get; set; }
 
         public Group Group { get; set; }
+
+        public ICollection<Classroom> Classrooms { get; set; }
     }
 }
