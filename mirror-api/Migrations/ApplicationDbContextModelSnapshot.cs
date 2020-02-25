@@ -41,7 +41,7 @@ namespace mirror_api.Migrations
 
                     b.HasIndex("LevelGroupMGroupId", "LevelGroupMLevelId");
 
-                    b.ToTable("Classroom");
+                    b.ToTable("Classrooms");
                 });
 
             modelBuilder.Entity("mirror_api.Models.Group", b =>
@@ -69,7 +69,7 @@ namespace mirror_api.Migrations
 
                     b.HasKey("LevelId");
 
-                    b.ToTable("Type");
+                    b.ToTable("Levels");
                 });
 
             modelBuilder.Entity("mirror_api.Models.LevelGroup", b =>

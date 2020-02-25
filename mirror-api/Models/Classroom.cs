@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace mirror_api.Models
 {
     public class Classroom
     {
+        [Key]
         public int ClassroomId { get; set; }
 
         public string ClassroomTitle { get; set; }

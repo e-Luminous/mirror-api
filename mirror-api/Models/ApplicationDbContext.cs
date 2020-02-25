@@ -6,9 +6,10 @@ namespace mirror_api.Models
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
 
-        public DbSet<Level> Type { get; set; }
+        public DbSet<Level> Levels { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<LevelGroup> LevelGroups { get; set; }
+        public DbSet<Classroom> Classrooms { get; set; }
         
         
         /*

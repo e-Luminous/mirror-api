@@ -20,7 +20,7 @@ namespace mirror_api.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Type",
+                name: "Levels",
                 columns: table => new
                 {
                     LevelId = table.Column<int>(nullable: false)
@@ -29,7 +29,7 @@ namespace mirror_api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Type", x => x.LevelId);
+                    table.PrimaryKey("PK_Levels", x => x.LevelId);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,15 +49,15 @@ namespace mirror_api.Migrations
                         principalColumn: "GroupId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_LevelGroups_Type_MLevelId",
+                        name: "FK_LevelGroups_Levels_MLevelId",
                         column: x => x.MLevelId,
-                        principalTable: "Type",
+                        principalTable: "Levels",
                         principalColumn: "LevelId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Classroom",
+                name: "Classrooms",
                 columns: table => new
                 {
                     ClassroomId = table.Column<int>(nullable: false)
@@ -70,9 +70,9 @@ namespace mirror_api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Classroom", x => x.ClassroomId);
+                    table.PrimaryKey("PK_Classrooms", x => x.ClassroomId);
                     table.ForeignKey(
-                        name: "FK_Classroom_LevelGroups_LevelGroupMGroupId_LevelGroupMLevelId",
+                        name: "FK_Classrooms_LevelGroups_LevelGroupMGroupId_LevelGroupMLevelId",
                         columns: x => new { x.LevelGroupMGroupId, x.LevelGroupMLevelId },
                         principalTable: "LevelGroups",
                         principalColumns: new[] { "MGroupId", "MLevelId" },
@@ -80,8 +80,8 @@ namespace mirror_api.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classroom_LevelGroupMGroupId_LevelGroupMLevelId",
-                table: "Classroom",
+                name: "IX_Classrooms_LevelGroupMGroupId_LevelGroupMLevelId",
+                table: "Classrooms",
                 columns: new[] { "LevelGroupMGroupId", "LevelGroupMLevelId" });
 
             migrationBuilder.CreateIndex(
@@ -93,7 +93,7 @@ namespace mirror_api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Classroom");
+                name: "Classrooms");
 
             migrationBuilder.DropTable(
                 name: "LevelGroups");
@@ -102,7 +102,7 @@ namespace mirror_api.Migrations
                 name: "Groups");
 
             migrationBuilder.DropTable(
-                name: "Type");
+                name: "Levels");
         }
     }
 }

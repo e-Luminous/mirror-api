@@ -9,7 +9,7 @@ using mirror_api.Models;
 namespace mirror_api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200224145555_InitialCreate")]
+    [Migration("20200225145228_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace mirror_api.Migrations
 
                     b.HasIndex("LevelGroupMGroupId", "LevelGroupMLevelId");
 
-                    b.ToTable("Classroom");
+                    b.ToTable("Classrooms");
                 });
 
             modelBuilder.Entity("mirror_api.Models.Group", b =>
@@ -71,7 +71,7 @@ namespace mirror_api.Migrations
 
                     b.HasKey("LevelId");
 
-                    b.ToTable("Type");
+                    b.ToTable("Levels");
                 });
 
             modelBuilder.Entity("mirror_api.Models.LevelGroup", b =>

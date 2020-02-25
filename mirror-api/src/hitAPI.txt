@@ -1,23 +1,39 @@
 --------------------------------------
 URL: /api/level/addLevel
 Verb: POST
-Object: {
+Body: {
         	"levelName": "A" 
         }
         
 --------------------------------------
 URL: /api/group/addGroup
 Verb: POST
-Object: {
+Body: {
         	"groupName": "Chemistry" 
         }
         
 --------------------------------------
 URL: /api/levelGroup/addLevelGroup
 Verb: POST
-Object: {
+Body: {
         	"mLevelId": 1,
         	"mGroupId": 2
         }
         
 --------------------------------------
+URL: /api/classrooms/addClassroom
+VERB: POST
+Body: {
+            "classroomTitle": "Tai Pai",
+            "accessCode": "aaa",
+            "colorPicker": "blue",
+            "levelGroup": {
+                "mLevelId": 1,
+                "mGroupId": 1
+            }
+        }
+        
+---------------------------------------
+URL: /api/classrooms/getClassrooms
+VERB: GET
+Body: Not Required
