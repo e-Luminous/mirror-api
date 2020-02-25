@@ -12,7 +12,7 @@ namespace mirror_api.ApiController
     public class ClassroomsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        
+
         public ClassroomsController(ApplicationDbContext context)
         {
             _context = context;
@@ -35,7 +35,7 @@ namespace mirror_api.ApiController
                 _context.Add(classroom);
                 _context.Entry(classroom.LevelGroup).State = EntityState.Unchanged;
                 await _context.SaveChangesAsync();
-                
+
                 return Json(new ApiMessage
                 {
                     HasError = false,
@@ -47,7 +47,7 @@ namespace mirror_api.ApiController
                 return Json(new ApiMessage
                 {
                     HasError = true,
-                    Message = e.InnerException.Message
+                    Message = e.Message
                 });
             }
         }
@@ -80,6 +80,40 @@ namespace mirror_api.ApiController
                 })
                 .ToListAsync();
             return Json(classrooms);
+        }
+
+        [HttpPost("UpgradeClassroom")]
+        public async Task<IActionResult> UpgradeClassroom([FromBody] Classroom classroom)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new ApiMessage
+                {
+                    HasError = true,
+                    Message = "InvalidModel",
+                });
+            }
+
+            try
+            {
+                _context.Update(classroom);
+                _context.Entry(classroom.LevelGroup).State = EntityState.Unchanged;
+                await _context.SaveChangesAsync();
+
+                return Json(new ApiMessage
+                {
+                    HasError = false,
+                    Message = "Success"
+                });
+            }
+            catch (Exception e)
+            {
+                return Json(new ApiMessage
+                {
+                    HasError = true,
+                    Message = e.Message
+                });
+            }
         }
     }
 }
