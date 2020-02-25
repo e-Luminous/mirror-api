@@ -1,0 +1,53 @@
+--------------------------------------
+URL: /api/level/addLevel
+Verb: POST
+Body: {
+        	"levelName": "A" 
+        }
+        
+--------------------------------------
+URL: /api/group/addGroup
+Verb: POST
+Body: {
+        	"groupName": "Chemistry" 
+        }
+        
+--------------------------------------
+URL: /api/levelGroup/addLevelGroup
+Verb: POST
+Body: {
+        	"mLevelId": 1,
+        	"mGroupId": 2
+        }
+        
+--------------------------------------
+URL: /api/classrooms/addClassroom
+VERB: POST
+Body: {
+            "classroomTitle": "Tai Pai",
+            "accessCode": "aaa",
+            "colorPicker": "blue",
+            "levelGroup": {
+                "mLevelId": 1,
+                "mGroupId": 1
+            }
+        }
+        
+---------------------------------------
+URL: /api/classrooms/getClassrooms
+VERB: GET
+Body: Not Required
+
+---------------------------------------
+URL: /api/classrooms/upgradeClassroom
+VERB: POST
+Body: {
+      	"classroomId": 3,
+          "classroomTitle": "Physics Batch-2022",
+          "accessCode": "axYuisnkl",
+          "colorPicker": "#1FAC45A",
+          "levelGroup": {
+              "mLevelId": 1,
+              "mGroupId": 1
+          }
+      }
