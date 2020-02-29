@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace mirror_api.Models
@@ -11,8 +12,16 @@ namespace mirror_api.Models
 
         public string AccessCode { get; set; }
 
-        public string ColorPicker { get; set; }
+        public string IllustrationUrl { get; set; }
 
-        public LevelGroup LevelGroup { get; set; }
+        public string Theme { get; set; }
+
+        public InstLevelGroup ILG { get; set; }
+
+        public Instructor Instructor { get; set; }
+
+        public List<StudentEnrollment> Enr { get; set; }
+        
+        public List<ExpClass> EC { get; set; }
     }
 }

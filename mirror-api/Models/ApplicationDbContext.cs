@@ -24,21 +24,21 @@ namespace mirror_api.Models
             // Defining the foreign keys in associative @LevelGroup model
             builder.Entity<LevelGroup>().HasKey(lg => new
             {
-                lg.MGroupId,
-                lg.MLevelId
+                lg.GroupId,
+                lg.LevelId
             });
             
             // Many-to-one relationship between @LevelGroup and @Level
             builder.Entity<LevelGroup>()
                 .HasOne(levelGroup => levelGroup.Level)
                 .WithMany(level => level.LevelGroups)
-                .HasForeignKey(levelGroup => levelGroup.MLevelId);
+                .HasForeignKey(levelGroup => levelGroup.LevelId);
             
             // Many-to-one relationship between @LevelGroup and @Group
             builder.Entity<LevelGroup>()
                 .HasOne(levelGroup => levelGroup.Group)
                 .WithMany(level => level.LevelGroups)
-                .HasForeignKey(levelGroup => levelGroup.MGroupId);
+                .HasForeignKey(levelGroup => levelGroup.GroupId);
         }
     }
 }
